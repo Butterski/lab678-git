@@ -1,5 +1,6 @@
 import sys
 import json
+import yaml
 
 class FileConverter:
     def __init__(self, file_name, output_file_name):
@@ -30,6 +31,13 @@ class FileConverter:
             return False
         return True
     
+    def is_yml(self) -> bool:
+        try:
+            yml_object = yaml.load(self.file_data, Loader=yaml.SafeLoader)
+        except ValueError as e:
+            return False
+        return True
+    
     def convert(self):
         print('bip bop converting')
 
@@ -39,7 +47,7 @@ def main():
         sys.exit(1)
     elif(len(sys.argv) == 3):
         fileConverter = FileConverter(sys.argv[1], sys.argv[2])
-        print(fileConverter.is_json())
+        print(fileConverter.is_yml())
     else:
         print("Podano za dużo argumentów.")
         sys.exit(1)

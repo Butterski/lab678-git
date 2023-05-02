@@ -6,7 +6,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 
-class FileConverter:  # todo zmień klase żeby outputować sobie tako
+class FileConverter: 
     def __init__(self, file_name, output_file_format):
         with open(file_name, 'r') as file:
             self.file_data = file.read()

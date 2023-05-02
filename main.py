@@ -14,8 +14,10 @@ class FileConverter:
         self.output_file_format = self.detect_file_format(
             self.output_file_name)
 
+
     def __str__(self) -> str:
         return f'{self.file_name} -> {self.output_file_name}'
+
 
     def detect_file_format(self, filename):
         if filename.endswith(".xml"):
@@ -26,6 +28,7 @@ class FileConverter:
             return 'yaml'
         else:
             return "Nieprawidłowy format pliku."
+
 
     def is_json(self) -> bool:
         try:
@@ -48,8 +51,9 @@ class FileConverter:
             return False
         return True
 
+
     def dict_to_xml(self, dict_object):
-        root = {'root': dict_object }
+        root = {'root': dict_object}
         return xmltodict.unparse(root, pretty=True)
 
     def dict_to_json(self, dict_object):
@@ -57,6 +61,7 @@ class FileConverter:
 
     def dict_to_yaml(self, dict_object):
         return yaml.dump(dict_object)
+
 
     def convert(self):
         output_file = open(self.output_file_name, "w")

@@ -49,7 +49,8 @@ class FileConverter:
         return True
 
     def dict_to_xml(self, dict_object):
-        return xmltodict.unparse(dict_object, pretty=True)
+        root = {'root': dict_object }
+        return xmltodict.unparse(root, pretty=True)
 
     def dict_to_json(self, dict_object):
         return json.dumps(dict_object, indent=4)

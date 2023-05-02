@@ -54,6 +54,9 @@ class FileConverter:
     def dict_to_json(self, dict_object):
         return json.dumps(dict_object, indent=4)
 
+    def dict_to_yaml(self, dict_object):
+        return yaml.dump(dict_object)
+
     def convert(self):
         output_file = open(self.output_file_name, "w")
 
@@ -66,7 +69,7 @@ class FileConverter:
             else:
                 print("Nieprawidłowy format pliku wyjściowego.")
                 sys.exit(1)
-        elif (self.file_format == 'yaml' and self.is_yml()):
+        elif ((self.file_format == 'yaml' or self.file_format == 'yml') and self.is_yml()):
             print(self.yml_object)
             if (self.output_file_format == 'xml'):
                 output_file.write(self.dict_to_xml(self.yml_object))

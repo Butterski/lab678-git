@@ -1,1 +1,1 @@
-echo hello
+pip install pyinstaller

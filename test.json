@@ -1,0 +1,8 @@
+{
+    "name": "Adam Mickiewicz",
+    "gender": "Male",
+    "age": 220,
+    "phoneNumber": [
+        { "type": "personal", "number": "000111222" }
+    ]
+}

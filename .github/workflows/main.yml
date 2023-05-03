@@ -18,7 +18,6 @@ jobs:
       - name: Install dependencies
         run: |
           ./installResources.ps1
-          pip install pyinstaller
       - name: Build executable
         run: |
           pyinstaller --onefile main.py
